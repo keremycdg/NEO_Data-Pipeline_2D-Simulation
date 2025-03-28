@@ -14,7 +14,7 @@ To get meaningful insights from data, somebody or some system needs to administr
 1. Install terraform from their official [website](https://developer.hashicorp.com/terraform/install). 
 1. Create a Service Account in your Google Cloud Project with the necessary roles (BigQuery Admin, Compute Admin, Storage Admin). Create and download a service account json key, name it as my-creds.json and replace it with the one in this repository.
 1. Pull docker-compose.yml from Kestra ```curl -o docker-compose.yml https://raw.githubusercontent.com/kestra-io/kestra/develop/docker-compose.yml```
-1. In this project, I wanted to set up the system without any local databases; Kestra runs on Cloud SQL instead of a local PostgresDB on the VM. You will need to follow Kestra's very explanatory official documentation [website](https://kestra.io/docs/installation/gcp-vm) to configure your docker-compose.yml to initiate the Kestra Service. You have already created and configured your Google Cloud VM by this point, so start following the instructions from minute 4:30 on the video documentation.
+1. In this project, I wanted to set up the system without any local databases; Kestra runs on Cloud SQL instead of a local PostgresDB on the VM. You will need to follow Kestra's very explanatory official documentation [website](https://kestra.io/docs/installation/gcp-vm) to configure your docker-compose.yml to initiate the Kestra Service.
 
 
 ## Steps to Run the Pipeline
