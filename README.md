@@ -1,8 +1,8 @@
 # Data Ingestion and ETL/ELT Pipeline with Data Analysis and 2D Simulation of NASA Near Earth Object(NEO) Database
 
-<img src="https://github.com/keremycdg/NEO_Data-Pipeline_2D-Simulation/blob/main/images/Diagram.png" alt="chart1" width="1000" height="500">
+<img src="https://github.com/keremycdg/NEO_Data-Pipeline_2D-Simulation/blob/main/images/Diagram.png" alt="chart1" width="1000" height="400">
 
-This repository counts as a final project for [Data Engineering Zoomcamp 2025](https://github.com/marketplace/actions/kestra-deploy-action). Here, you will explore various tools such as Terraform for IaC, dlt and python to ingest the data from the API, Kestra to orchestrate the flow and to load it to a data warehouse, BigQuery to run SQL queries and to write tables to the Bucket, Apache Spark to batch process and to feature engineer the data, and finally Google Looker Studio to analyze it. The project is created in a Google Cloud VM environment, so it is highly recommended that the environment is set up first before running the files. I have logged the steps through my journey of creating this project, and will leave links of resources to set up the environment in the Prerequisites section.
+This repository counts as a final project for [Data Engineering Zoomcamp 2025](https://github.com/DataTalksClub/data-engineering-zoomcamp). Here, you will explore various tools such as Terraform for IaC, dlt and python to ingest the data from the API, Kestra to orchestrate the flow and to load it to a data warehouse, BigQuery to run SQL queries and to write tables to the Bucket, Apache Spark to batch process and to feature engineer the data, and finally Google Looker Studio to analyze it. The project is created in a Google Cloud VM environment, so it is highly recommended that the environment is set up first before running the files. I have logged the steps through my journey of creating this project, and will leave links of resources to set up the environment in the Prerequisites section.
 
 ## Problem Definition
 
