@@ -1,0 +1,40 @@
+id: load-nasa-cad-to-bigquery-dlt
+namespace: zoomcamp
+description: "Load NASA CAD API data using dlt and load it directly into BigQuery via environment variables"
+
+tasks:
+  - id: run_dlt_pipeline
+    type: io.kestra.plugin.scripts.python.Script
+    docker:
+      image: python:3.11
+    beforeCommands:
+      - pip install "dlt[bigquery]"
+      - pip install google-cloud-bigquery
+      - pip install google-cloud-bigquery-storage
+    env:
+      CREDENTIALS__PROJECT_ID: "{{ kv('BIGQUERY_PROJECT_ID') }}"
+      CREDENTIALS__PRIVATE_KEY: "{{ kv('BIGQUERY_PRIVATE_KEY') }}"
+      CREDENTIALS__CLIENT_EMAIL: "{{ kv('BIGQUERY_CLIENT_EMAIL') }}"
+    script: |
+      import dlt
+      from dlt.sources.helpers.rest_client import RESTClient
+
+      @dlt.resource(name="nasa_cad", write_disposition="append")
+      def nasa_cad():
+          client = RESTClient(base_url="https://ssd-api.jpl.nasa.gov")
+          response = client.get("cad.api?date-min=1900-01-01&date-max=2025-01-01&diameter=true&fullname=true")
+          response.raise_for_status()
+          json_data = response.json()
+          fields = json_data.get("fields", [])
+          data = json_data.get("data", [])
+          for row in data:
+              yield dict(zip(fields, row))
+
+      pipeline = dlt.pipeline(
+          pipeline_name="nasa_cad_pipeline",
+          destination="bigquery",
+          dataset_name="nasa_cad_data"
+      )
+
+      load_info = pipeline.run(nasa_cad)
+      print(pipeline.last_trace)
