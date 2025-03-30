@@ -315,7 +315,7 @@ def run_simulation(data_list):
     pygame.quit()
 
 def main():
-    # Use SQLite instead of MongoDB.
+    # Use SQLite
     data_list = load_cad_data_from_sqlite("neo_db.sqlite")
     if not data_list:
         print("No data found in SQLite database or invalid structure.")
