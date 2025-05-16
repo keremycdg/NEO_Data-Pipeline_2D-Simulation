@@ -1,4 +1,4 @@
-# Data Ingestion and ETL/ELT Pipeline with Data Analysis and 2D Simulation of NASA Near Earth Object(NEO) Database
+# Data Ingestion and ELT Pipeline with Data Analysis and 2D Simulation of NASA Near Earth Object(NEO) Database
 
 <img src="https://github.com/keremycdg/NEO_Data-Pipeline_2D-Simulation/blob/main/images/Diagram.png" alt="chart1" width="1000" height="400">
 
